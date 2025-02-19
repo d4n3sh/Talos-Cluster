@@ -76,3 +76,6 @@ Generate a custom image with support for the `qemu-guest-agent` extension.
 
 [ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515](https://factory.talos.dev/?arch=amd64&cmdline-set=true&extensions=-&extensions=siderolabs%2Fqemu-guest-agent&platform=metal&target=metal&version=1.9.4)
 
+Verify secureboot is being used.  
+`talosctl -n 192.168.100.101 get securitystate --insecure`
+
