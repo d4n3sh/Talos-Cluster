@@ -55,6 +55,9 @@ Workers
 - 2048MB Memory
 - 100GB Disk
 
+For secure boot, pre-enrolled keys should be ignored and the secure boot image should be used.  
+- EFI Disk: `pre-enrolled-key=0`
+
 ## Networking
 
 Configure static DHCP address assignments on router.
