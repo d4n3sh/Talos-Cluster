@@ -12,6 +12,8 @@ Talos Linux based K8s Cluster
 
 ## Controlers
 
+- tlvip01 - `192.168.100.100/24`
+
 - tlc01 - `192.168.100.101/24`
 - tlc02 - `192.168.100.102/24`
 - tlc03 - `192.168.100.103/24`
@@ -79,3 +81,15 @@ Generate a custom image with support for the `qemu-guest-agent` extension.
 Verify secureboot is being used.  
 `talosctl -n 192.168.100.101 get securitystate --insecure`
 
+## Install
+
+`export CLUSTER_ENDPOINT=https://192.168.100.100:6443`
+
+`export CLUSTER_NAME=infra-prod`
+
+`talosctl gen secrets -o secrets.yaml`
+
+`talosctl gen config --with-secrets secrets.yaml $CLUSTER_NAME $CLUSTER_ENDPOINT`
+
+Patch VIP address into control plane config
+`talosctl gen config --with-secrets secrets.yaml $CLUSTER_NAME $CLUSTER_ENDPOINT --config-patch-control-plane @vip_patch.yaml --force`
